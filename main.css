@@ -14,3 +14,36 @@ body {
     margin: 0 auto;
     padding: 0 1.5rem;
 }
+
+#yamlFileOutputSection pre {
+    margin: 0;
+}
+
+#yamlFileOutputSection h2 {
+    margin-bottom: .2rem;
+    margin-left: 1rem;
+}
+
+#rawOutput {
+    font-size: .6rem;
+    padding: 1rem;
+    height: 5.5rem;
+    border: rgb(131, 131, 131) 1px solid;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+#rawOutput.expanded {
+    height: auto;
+}
+
+#yamlFileOutputSection .container {
+    padding: 0 .5rem;
+}
+
+/* on larger screens font is bigger */
+@media (min-width: 65em) {
+    #rawOutput {
+        font-size: .8rem;
+    }
+}
