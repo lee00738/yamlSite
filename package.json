@@ -8,8 +8,5 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "yaml": "^2.8.1"
-  }
+  "description": ""
 }
