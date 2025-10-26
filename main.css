@@ -3,11 +3,14 @@
 }
 
 body {
+    min-height: 100vh;
     font-family: Arial, sans-serif;
     margin: 0;
     background-color: #f4f4f4;
 }
 
-.contianer {
-    
+.container {
+    width: min(65em, 100%);
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
