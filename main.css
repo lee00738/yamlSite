@@ -85,8 +85,8 @@ body {
 .card #points {
     border: #f4f4f4 1px solid;
     border-radius: 50%;
-    width: 8rem;
-    height: 8rem;
+    width: 9rem;
+    height: 9rem;
     background-color: rgb(30, 164, 0);
     display: flex;
     flex-direction: column;
@@ -94,6 +94,17 @@ body {
     align-items: center;
     margin-bottom: 1rem;
     background-image: conic-gradient(from 0deg at 50% 50%, rgb(10, 129, 14) 0% 75%, #d21818 75% 100%);
+}
+
+#points div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    border-radius: 50%;
+    background: radial-gradient(rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 15%, rgba(0, 0, 0, 0) 60%, rgba(237, 221, 83, 0) 70%);
+
 }
 
 .card #points p {

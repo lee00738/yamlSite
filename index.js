@@ -87,18 +87,20 @@ function displayInfo() {
     document.getElementById('infoContainer').innerHTML = `
         <div class="card">
             <h3>Info:</h3>
-            <p class="small"><strong>Course:</strong></p>
-            <p>${info.course}</p>
             <p class="small"><strong>Lab:</strong></p>
             <p>${info.lab}</p>
+            <p class="small"><strong>Course:</strong></p>
+            <p>${info.course}</p>
             <p class="small"><strong>Student:</strong></p>
             <p>${info.student}</p>
         </div>
         <div class="card">
             <h3>Points:</h3>
             <div id="points">
-                <p>${info.earned_points}</p>
-                <p>${info.total_points}</p>
+                <div>
+                    <p>${info.earned_points}</p>
+                    <p>${info.total_points}</p>
+                </div>
             </div>
             <p class="small"><strong>Percentage:</strong></p>
             <p>${info.grade}</p>
