@@ -21,11 +21,11 @@ function main() {
         let storedText = localStorage.getItem(YAML_TEXT_STORAGE_NAME);
         console.log(YAML.parse(storedText));
         displayYamlText(storedText);
+        displayInfo();
     } 
 
     document.getElementById('yamlFile').addEventListener('change', readFile); 
 
-    displayInfo();
 }
 
 
@@ -46,10 +46,27 @@ function displayInfo() {
         grade: parsedYaml.lab.lab_grade,
     }
 
-    document.getElementById('infoContainer').innerHTML = Object.entries(info).map(e => {
-        return `
-        <p class="card"><strong>${e[0].replaceAll('_', ' ').toUpperCase()}:</strong> ${e[1]}</p>`
-    }).join('');
+    document.getElementById('infoContainer').innerHTML = `
+        <div class="card">
+            <h3>Info:</h3>
+            <p class="small"><strong>Course:</strong></p>
+            <p>${info.course}</p>
+            <p class="small"><strong>Lab:</strong></p>
+            <p>${info.lab}</p>
+            <p class="small"><strong>Student:</strong></p>
+            <p>${info.student}</p>
+        </div>
+        <div class="card">
+            <h3>Points:</h3>
+            <div id="points">
+                <p>${info.earned_points}</p>
+                <p>${info.total_points}</p>
+            </div>
+            <p class="small"><strong>Percentage:</strong></p>
+            <p>${info.grade}</p>
+        </div>
+    `;
+
 
     // console.log(info);
     // Object.entries(info).forEach(e => {
@@ -80,6 +97,7 @@ function readFile(event) {
         const doc = YAML.parse(yamlText);
         localStorage.setItem(PARSED_YAML_STORAGE_NAME, JSON.stringify(doc));
         console.log(doc);
+        displayInfo();
     };
 
     reader.readAsText(currentFile);

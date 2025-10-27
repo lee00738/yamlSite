@@ -41,8 +41,86 @@ body {
     padding: 0 .5rem;
 }
 
-/* on larger screens font is bigger */
+#infoSection {
+    background-color: lightgray;
+}
+
+#infoSection h2 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+
+#infoSection .container {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+#infoContainer {
+    display: flex;
+    
+    flex-direction: column;
+    gap: 1rem;
+    /* border: gray 1px solid; */
+}
+
+.card {
+    /* border: rgb(113, 113, 113) 1px solid; */
+    border-radius: 1rem;
+    width: 100%;
+    padding: .9rem;
+    background-color: rgb(244, 244, 244);
+    box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+
+.card p {
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+
+.card #points {
+    border: #f4f4f4 1px solid;
+    border-radius: 100%;
+    width: 5rem;
+    height: 5rem;
+    background-color: rgb(30, 164, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.card #points p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.card #points p:first-child {
+    padding: .125rem ;
+    border-bottom: #000000 1px solid;
+}
+
+.card p.small {
+    margin-bottom: .075rem;
+    font-size: .75rem;
+}
+
+
 @media (min-width: 65em) {
+    #infoContainer {
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+
+/* on larger screens font is bigger */
+@media (min-width: 45em) {
     #rawOutput {
         font-size: .8rem;
     }
