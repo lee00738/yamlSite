@@ -58,7 +58,7 @@ body {
 #infoContainer {
     display: flex;
     
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
     /* border: gray 1px solid; */
 }
@@ -79,34 +79,57 @@ body {
 
 .card p {
     margin-top: 0;
-    margin-bottom: .5rem;
+    margin-bottom: .75rem;
 }
 
 .card #points {
     border: #f4f4f4 1px solid;
-    border-radius: 100%;
-    width: 5rem;
-    height: 5rem;
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
     background-color: rgb(30, 164, 0);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+    background-image: conic-gradient(from 0deg at 50% 50%, rgb(10, 129, 14) 0% 75%, #d21818 75% 100%);
 }
 
 .card #points p {
     margin: 0;
     font-weight: bold;
+    color: #ffffff;
 }
 
 .card #points p:first-child {
     padding: .125rem ;
-    border-bottom: #000000 1px solid;
+    border-bottom: #ffffff 1px solid;
 }
 
 .card p.small {
     margin-bottom: .075rem;
+    font-size: .75rem;
+}
+
+#wrongAnswersSection {
+    margin-bottom: 2rem;
+}
+
+#wrongAnswersContainer {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    width: 100%;
+}
+
+#wrongAnswersContainer p {
+    margin-bottom: .25rem;
+}
+
+.feedback {
+    margin-top: 0rem;
+    margin-left: 1.5rem;
+    font-family: "Roboto Mono", monospace;
     font-size: .75rem;
 }
 

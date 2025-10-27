@@ -22,13 +22,50 @@ function main() {
         console.log(YAML.parse(storedText));
         displayYamlText(storedText);
         displayInfo();
+        displayWrongAnswers();
     } 
 
     document.getElementById('yamlFile').addEventListener('change', readFile); 
 
 }
 
+function displayWrongAnswers() {
+    const parsedYaml = JSON.parse(localStorage.getItem(PARSED_YAML_STORAGE_NAME))
+    if (!parsedYaml) return []
+    
+    let wrongAnswers = []
+    parsedYaml.feedback.forEach(t => {
+        let tt = {
+            task: t.task,
+            results: []
+        };
+        
+        t.results.forEach(result => {
+            if (result.feedback.includes("❌")) {
+                tt.results.push(result);
+            }
+        });
 
+        if (tt.results.length > 0) {
+            wrongAnswers.push(tt);
+        }
+    });
+    document.getElementById('wrongAnswersContainer').innerHTML = wrongAnswers.map(t => {
+        return `
+            <div class="wrongAnswerUnit">
+                <p><strong>Task: ${t.task.replace(/-/g, '')}</strong></p>
+                ${t.results.map(r => {
+                    return (
+                        "<p class='feedback'>" + r.feedback + "</p>"
+                    )
+                }).join('')}
+            </div>
+        `
+    }).join('');
+
+
+    
+}
 
 function displayInfo() {
     const parsedYaml = JSON.parse(localStorage.getItem(PARSED_YAML_STORAGE_NAME))
@@ -45,6 +82,7 @@ function displayInfo() {
         adjusted_points: parsedYaml.lab.adjusted_points,
         grade: parsedYaml.lab.lab_grade,
     }
+
 
     document.getElementById('infoContainer').innerHTML = `
         <div class="card">
@@ -66,6 +104,9 @@ function displayInfo() {
             <p>${info.grade}</p>
         </div>
     `;
+
+    let conicGrad = `conic-gradient(from 0deg at 50% 50%, rgb(10, 129, 14) 0% ${info.grade}, #d21818 ${info.grade} 100%)`
+    document.getElementById('points').style.background = conicGrad;
 
 
     // console.log(info);
@@ -98,6 +139,7 @@ function readFile(event) {
         localStorage.setItem(PARSED_YAML_STORAGE_NAME, JSON.stringify(doc));
         console.log(doc);
         displayInfo();
+        displayWrongAnswers();
     };
 
     reader.readAsText(currentFile);
